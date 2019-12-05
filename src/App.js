@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import day01 from './day01/day01'
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default () => (
+  <React.Fragment>
+    <header>
+      <div>
+        <h1 className="title-global">
+          <span>Advent of Code</span>
+        </h1>
+      </div>
+      <div>
+        <h1 className="title-event">
+          &nbsp;&nbsp;&nbsp;
+          <span className="title-event-wrap">0xffff&</span>
+          <span>2019</span>
+        </h1>
+      </div>
+    </header>
 
-export default App;
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Answer</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>{day01.answer()}</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </React.Fragment>
+);
