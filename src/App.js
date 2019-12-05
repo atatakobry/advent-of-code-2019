@@ -30,7 +30,7 @@ export default () => (
 
         <tbody>
           <tr><td>01</td><td>{day01.answer1()} | {day01.answer2()}</td></tr>
-          <tr><td>02</td><td>{day02.answer()}</td></tr>
+          <tr><td>02</td><td>{day02.answer1()} | {day02.answer2()}</td></tr>
         </tbody>
       </table>
     </main>

@@ -2,40 +2,44 @@ import { map, split, trim } from 'lodash';
 
 import input from './input.txt';
 
-export const getArray = input => {
+const NUMBER_OF_VALUES = 4;
+
+export const getArray = (input, noun = 12, verb = 2) => {
     const array = map(split(trim(input), ','), element => +element);
 
-    array[1] = 12;
-    array[2] = 2;
+    array[1] = noun;
+    array[2] = verb;
 
     return array;
 };
 
-export const opcode1 = (array = [], offset = 0) => {
-    array[array[3 + offset]] = array[array[1 + offset]] + array[array[2 + offset]];
+export const opcode1 = (array = [], pointer = 0) => {
+    array[array[pointer + 3]] = array[array[pointer + 1]] + array[array[pointer + 2]];
 
     return array;
 };
 
-export const opcode2 = (array = [], offset = 0) => {
-    array[array[3 + offset]] = array[array[1 + offset]] * array[array[2 + offset]];
+export const opcode2 = (array = [], pointer = 0) => {
+    array[array[pointer + 3]] = array[array[pointer + 1]] * array[array[pointer + 2]];
 
     return array;
 };
 
 export const run = (array = []) => {
-    for(let i = 0; i < array.length; i++) {
-        if (array[i] === 1) {
-            opcode1(array, i);
-            i += 3;
+    for (let pointer = 0; pointer < array.length; pointer++) {
+        const opcode = array[pointer];
+
+        if (opcode === 1) {
+            opcode1(array, pointer);
+            pointer += NUMBER_OF_VALUES - 1;
         }
 
-        else if (array[i] === 2) {
-            opcode2(array, i);
-            i += 3;
+        else if (opcode === 2) {
+            opcode2(array, pointer);
+            pointer += NUMBER_OF_VALUES - 1;
         }
 
-        else if (array[i] === 99) {
+        else if (opcode === 99) {
             return array;
         }
     }
@@ -44,5 +48,16 @@ export const run = (array = []) => {
 };
 
 export default {
-    answer: () => run(getArray(input))[0]
+    answer1: () => run(getArray(input))[0],
+    answer2: () => {
+        for (let noun = 0; noun < 100; noun++) {
+            for (let verb = 0; verb < 100; verb++) {
+                if (19690720 === run(getArray(input, noun, verb))[0]) {
+                    return 100 * noun + verb;
+                }
+            }
+        }
+
+        return;
+    }
 }
