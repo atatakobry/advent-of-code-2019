@@ -1,6 +1,7 @@
 import React from 'react';
 
 import day01 from './day01/day01'
+import day02 from './day02/day02'
 
 import './App.css';
 
@@ -24,17 +25,12 @@ export default () => (
     <main>
       <table>
         <thead>
-          <tr>
-            <th>Day</th>
-            <th>Answer</th>
-          </tr>
+          <tr><th>Day</th><th>Answer</th></tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>01</td>
-            <td>{day01.answer()}</td>
-          </tr>
+          <tr><td>01</td><td>{day01.answer()}</td></tr>
+          <tr><td>02</td><td>{day02.answer()}</td></tr>
         </tbody>
       </table>
     </main>
