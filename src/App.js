@@ -2,6 +2,7 @@ import React from 'react';
 
 import day01 from './day01/day01'
 import day02 from './day02/day02'
+import day03 from './day03/day03'
 
 import './App.css';
 
@@ -31,6 +32,7 @@ export default () => (
         <tbody>
           <tr><td>01</td><td>{day01.answer1()} | {day01.answer2()}</td></tr>
           <tr><td>02</td><td>{day02.answer1()} | {day02.answer2()}</td></tr>
+          <tr><td>03</td><td>{day03.answer()}</td></tr>
         </tbody>
       </table>
     </main>
