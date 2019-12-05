@@ -25,11 +25,11 @@ export default () => (
     <main>
       <table>
         <thead>
-          <tr><th>Day</th><th>Answer</th></tr>
+          <tr><th>Day</th><th>Answers</th></tr>
         </thead>
 
         <tbody>
-          <tr><td>01</td><td>{day01.answer()}</td></tr>
+          <tr><td>01</td><td>{day01.answer1()} | {day01.answer2()}</td></tr>
           <tr><td>02</td><td>{day02.answer()}</td></tr>
         </tbody>
       </table>
