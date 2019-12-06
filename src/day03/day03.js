@@ -107,6 +107,7 @@ export const getDistance = (input, withMinSignalDelay = false) => {
 };
 
 export default {
+    input,
     answer1: () => getDistance(input),
     answer2: () => getDistance(input, true),
 };

@@ -24,17 +24,23 @@ export default () => (
     </header>
 
     <main>
-      <table>
-        <thead>
-          <tr><th>Day</th><th>Answers</th></tr>
-        </thead>
+      <article>
+        <div><em>Day 01</em></div>
+        <div><em>Input</em><pre>{day01.input}</pre></div>
+        <div><em>Answers</em><br />{day01.answer1()} | {day01.answer2()}</div>
+      </article>
 
-        <tbody>
-          <tr><td>01</td><td>{day01.answer1()} | {day01.answer2()}</td></tr>
-          <tr><td>02</td><td>{day02.answer1()} | {day02.answer2()}</td></tr>
-          <tr><td>03</td><td>{day03.answer1()} | {day03.answer2()}</td></tr>
-        </tbody>
-      </table>
+      <article>
+        <div><em>Day 02</em></div>
+        <div><em>Input</em><pre>{day02.input}</pre></div>
+        <div><em>Answers</em><br />{day02.answer1()} | {day02.answer2()}</div>
+      </article>
+
+      <article>
+        <div><em>Day 03</em></div>
+        <div><em>Input</em><pre>{day03.input}</pre></div>
+        <div><em>Answers</em><br />{day03.answer1()} | {day03.answer2()}</div>
+      </article>
     </main>
   </React.Fragment>
 );

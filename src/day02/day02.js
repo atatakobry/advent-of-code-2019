@@ -48,6 +48,7 @@ export const run = (array = []) => {
 };
 
 export default {
+    input,
     answer1: () => run(getArray(input))[0],
     answer2: () => {
         for (let noun = 0; noun < 100; noun++) {
@@ -60,4 +61,4 @@ export default {
 
         return;
     }
-}
+};

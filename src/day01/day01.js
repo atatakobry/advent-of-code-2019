@@ -22,6 +22,7 @@ export const getTotalFuel = (masses, withAdditionalFuel = false) =>
     reduce(masses, (totalFuel, mass) => totalFuel + getFuel(mass, withAdditionalFuel), 0);
 
 export default {
+    input,
     answer1: () => getTotalFuel(getMasses(input)),
     answer2: () => getTotalFuel(getMasses(input), true)
-}
+};

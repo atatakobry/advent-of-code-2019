@@ -17,10 +17,29 @@ header h1.title-event .title-event-wrap {
     white-space: pre;
 }
 
-main table {
-    width: 45em;
+main {
+    margin-bottom: 2.5em;
 }
-main table th {
+main article + article {
+    margin-top: 1.5em;
+    border-top: 1px dashed #333333;
+    padding-top: 1.5em;
+}
+main div + div {
+    margin-top: 1em;
+}
+main div em {
+    display: inline-block;
+    margin-bottom: 0.25em;
     color: #ffffff;
-    text-align: left;
+    font-style: normal;
+}
+main div pre {
+    margin: 0.25em 0 0;
+    padding: 1em;
+    max-height: 10em;
+    overflow: auto;
+    font-size: 0.75em;
+    border: 1px solid #666666;
+    background: #10101a;
 }
