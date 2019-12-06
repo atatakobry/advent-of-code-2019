@@ -8,6 +8,12 @@ test('are adjacent digits same', () => {
     expect(areAdjacentDigitsSame(112233)).toBeTruthy();
     expect(areAdjacentDigitsSame(122345)).toBeTruthy();
     expect(areAdjacentDigitsSame(123455)).toBeTruthy();
+
+    expect(areAdjacentDigitsSame(123444, true)).toBeFalsy();
+    expect(areAdjacentDigitsSame(111444, true)).toBeFalsy();
+    expect(areAdjacentDigitsSame(112233, true)).toBeTruthy();
+    expect(areAdjacentDigitsSame(111122, true)).toBeTruthy();
+    expect(areAdjacentDigitsSame(113444, true)).toBeTruthy();
 });
 
 test('are digits never decrease', () => {
