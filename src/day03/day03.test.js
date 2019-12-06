@@ -1,10 +1,10 @@
 import { getSegment, getSegments, getSegmentsIntersection, getDistance } from './day03';
 
 test('get segment', () => {
-    expect(getSegment([0,0], 'U10')).toStrictEqual([[0,0], [0,10]]);
-    expect(getSegment([0,0], 'R10')).toStrictEqual([[0,0], [10,0]]);
-    expect(getSegment([0,0], 'D10')).toStrictEqual([[0,0], [0,-10]]);
-    expect(getSegment([0,0], 'L10')).toStrictEqual([[0,0], [-10,0]]);
+    expect(getSegment([0,0], 'U10')).toStrictEqual([[0,0], [0,10], 10]);
+    expect(getSegment([0,0], 'R10')).toStrictEqual([[0,0], [10,0], 10]);
+    expect(getSegment([0,0], 'D10')).toStrictEqual([[0,0], [0,-10], 10]);
+    expect(getSegment([0,0], 'L10')).toStrictEqual([[0,0], [-10,0], 10]);
 });
 
 test('get segments', () => {
@@ -14,16 +14,16 @@ test('get segments', () => {
     `;
     expect(getSegments(input)).toStrictEqual([
         [
-            [[0,0], [8,0]],
-            [[8,0], [8,5]],
-            [[8,5], [3,5]],
-            [[3,5], [3,2]]
+            [[0,0], [8,0], 8],
+            [[8,0], [8,5], 5],
+            [[8,5], [3,5], 5],
+            [[3,5], [3,2], 3]
         ],
         [
-            [[0,0], [0,7]],
-            [[0,7], [6,7]],
-            [[6,7], [6,3]],
-            [[6,3], [2,3]]
+            [[0,0], [0,7], 7],
+            [[0,7], [6,7], 6],
+            [[6,7], [6,3], 4],
+            [[6,3], [2,3], 4]
         ]
     ]);
 });
@@ -40,7 +40,7 @@ test('get segments intersection', () => {
             [[0,0], [20,0]],
             [[10,-20], [10,20]]
         ]
-    )).toStrictEqual([10, 0]);
+    )).toStrictEqual([10, 0, [10,20]]);
 });
 
 test('get distance', () => {
@@ -51,10 +51,12 @@ test('get distance', () => {
     U62,R66,U55,R34,D71,R55,D58,R83
     `;
     expect(getDistance(input)).toBe(159);
+    expect(getDistance(input, true)).toBe(610);
 
     input = `
     R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51
     U98,R91,D20,R16,D67,R40,U7,R15,U6,R7
     `;
     expect(getDistance(input)).toBe(135);
+    expect(getDistance(input, true)).toBe(410);
 });
