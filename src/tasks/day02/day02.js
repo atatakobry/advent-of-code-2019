@@ -48,6 +48,8 @@ export const run = (array = []) => {
 };
 
 export default {
+    day: 2,
+    title: '1202 Program Alarm',
     input,
     answer1: () => run(getArray(input))[0],
     answer2: () => {

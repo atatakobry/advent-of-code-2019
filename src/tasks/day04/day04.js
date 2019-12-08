@@ -60,6 +60,8 @@ export const countPasswords = ([min, max], hasMoreStrictCondition) => {
 };
 
 export default {
+    day: 4,
+    title: 'Secure Container',
     input,
     answer1: () => countPasswords(getRange(input)),
     answer2: () => countPasswords(getRange(input), true)
