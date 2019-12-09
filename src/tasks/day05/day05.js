@@ -138,13 +138,14 @@ export const run = (array = [], input) => {
 
 const answer = id => {
     const array = getArray(getArray(puzzleInput));
+    // eslint-disable-next-line no-unused-vars
     const [a, outputs] = run(array, id);
 
-    console.log('ID of the system to test: ', id);
-    console.log('tests outputs: ', outputs);
+    // console.log('ID of the system to test: ', id);
+    // console.log('tests outputs: ', outputs);
 
-    console.log('original program\'s array', array);
-    console.log('program\'s array after execution: ', a);
+    // console.log('original program\'s array', array);
+    // console.log('program\'s array after execution: ', a);
 
     return last(outputs);
 };
