@@ -32,9 +32,9 @@ test('run', () => {
     expect(run([1,0,0,3,0,0,3,5], 10)).toStrictEqual([[1,0,0,2,0,10,3,5], []]);
 
     expect(run([3,9,8,9,10,9,4,9,99,-1,8], 8)).toContainEqual([1]);
-    expect(run([3,9,8,9,10,9,4,9,99,-1,8], 1)).toContainEqual([0]);
+    expect(run([3,9,8,9,10,9,4,9,99,-1,8], [1])).toContainEqual([0]);
     expect(run([3,9,7,9,10,9,4,9,99,-1,8], 1)).toContainEqual([1]);
-    expect(run([3,9,7,9,10,9,4,9,99,-1,8], 8)).toContainEqual([0]);
+    expect(run([3,9,7,9,10,9,4,9,99,-1,8], [8])).toContainEqual([0]);
     expect(run([3,3,1108,-1,8,3,4,3,99], 8)).toContainEqual([1]);
     expect(run([3,3,1108,-1,8,3,4,3,99], 1)).toContainEqual([0]);
     expect(run([3,3,1107,-1,8,3,4,3,99], 1)).toContainEqual([1]);

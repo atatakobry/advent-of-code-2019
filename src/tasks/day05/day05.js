@@ -1,4 +1,4 @@
-import { map, split, trim, padStart, reverse, last } from 'lodash';
+import { map, split, trim, padStart, reverse, last, isArray, isEmpty } from 'lodash';
 
 import puzzleInput from './input.txt';
 
@@ -86,9 +86,11 @@ export const opcode8 = (array = [], modes = [0,0], pointer = 0) => {
     return [a, p];
 };
 
-export const run = (array = [], input) => {
+export const run = (array = [], inputs = []) => {
     let a = [...array];
+    let i = isArray(inputs) ? [...inputs] : [inputs];
     let pointer = 0;
+    let input;
     let outputs = [];
 
     for (; pointer < a.length; pointer++) {
@@ -103,12 +105,18 @@ export const run = (array = [], input) => {
         }
 
         else if (opcode === 3) {
+            if (!isEmpty(i))  {
+                input = i.shift()
+            }
+
             [a, pointer] = opcode3(a, input, pointer);
         }
 
         else if (opcode === 4) {
             let output;
+
             [output, pointer] = opcode4(a, pointer);
+
             outputs.push(output);
         }
 
