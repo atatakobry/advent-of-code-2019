@@ -1,4 +1,4 @@
-import { reduce, values, remove, forEach, map, split, trim} from 'lodash';
+import { forEach, remove, map, split, trim, values, reduce, differenceBy } from 'lodash';
 import TreeModel from 'tree-model';
 
 import input from './input.txt';
@@ -41,6 +41,20 @@ export const getTreeModel = input => {
     return treeModel;
 };
 
+export const getTotalNumberOfOrbits = root => {
+    let totalNumber = 0;
+
+    root.walk(node => {
+        totalNumber += node.getPath().length - 1;
+    });
+
+    return totalNumber;
+};
+
+export const getMinNumberOfTransfers = (node1, node2) =>
+    differenceBy(node1.getPath(), node2.getPath()).length +
+    differenceBy(node2.getPath(), node1.getPath()).length;
+
 export default {
     day: 6,
     input,
@@ -49,13 +63,15 @@ export default {
         const tree = new TreeModel();
         const root = tree.parse(getTreeModel(input));
 
-        let totalNumber = 0;
-
-        root.walk(node => {
-            totalNumber += node.getPath().length - 1;
-        });
-
-        return totalNumber;
+        return getTotalNumberOfOrbits(root);
     },
-    answer2: () => '-'
+    answer2: () => {
+        const tree = new TreeModel();
+        const root = tree.parse(getTreeModel(input));
+
+        return getMinNumberOfTransfers(
+            root.first(node => node.model.id === 'YOU').parent,
+            root.first(node => node.model.id === 'SAN').parent
+        );
+    }
 };
