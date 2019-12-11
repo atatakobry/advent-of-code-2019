@@ -5,6 +5,7 @@ import day04 from './day04/day04';
 import day05 from './day05/day05';
 import day06 from './day06/day06';
 import day07 from './day07/day07';
+import day08 from './day08/day08';
 
 export default [
     day01,
@@ -13,5 +14,6 @@ export default [
     day04,
     day05,
     day06,
-    day07
+    day07,
+    day08
 ];
