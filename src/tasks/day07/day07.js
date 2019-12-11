@@ -5,31 +5,39 @@ import { getArray, run } from '../day05/day05';
 import input from './input.txt';
 
 const NUMBER_OF_AMPLIFIERS = 5;
-const MAX = 43210;
 
-export const getMaxSignal = (array = [], input) => {
+export const getMaxSignal = (array = []) => {
     const options = [];
     const results = [];
 
-    results[0] = input;
+    const [ from, to ] = [1234, 43210];
+    const wrongRangePredicate = digit => digit < 0 || digit > 4;
+    const areDigitsUniq = sequence => uniq(sequence).length !== NUMBER_OF_AMPLIFIERS;
 
-    for (let d = 0; d <= MAX; d++) {
-        const sequence = map(split(padStart('' + d, NUMBER_OF_AMPLIFIERS, '0'), ''), s => +s);
+    for (let n = from; n <= to; n++) {
+        const inputs = [[0], [], [], [], []];
+        const sequence = map(split(padStart('' + n, NUMBER_OF_AMPLIFIERS, '0'), ''), s => +s);
 
-        if (some(sequence, digit => digit > NUMBER_OF_AMPLIFIERS - 1) || uniq(sequence).length !== NUMBER_OF_AMPLIFIERS) {
+        if (some(sequence, wrongRangePredicate) || areDigitsUniq(sequence)) {
             continue;
         }
 
         for (let i = 0; i < NUMBER_OF_AMPLIFIERS; i++) {
-            const [, [input]] = run(array, [sequence[i], results[i]]);
+            inputs[i] = [sequence[i], ...inputs[i]];
 
-            results[i + 1] = input;
+            const [, [output]] = run(array, inputs[i]);
+
+            if (i !== NUMBER_OF_AMPLIFIERS - 1) {
+                inputs[i + 1].push(output);
+            }
+
+            results[i] = output;
         }
 
         options.push({ sequence, output: last(results) });
     }
 
-    return maxBy(options, ({ output }) => output);
+    return maxBy(options, ({ output }) => output) || {};
 };
 
 export default {
@@ -38,7 +46,7 @@ export default {
     input,
     answer1: () => {
         const array = getArray(input);
-        const { output } = getMaxSignal(array, 0);
+        const { output } = getMaxSignal(array);
 
         return output;
     },

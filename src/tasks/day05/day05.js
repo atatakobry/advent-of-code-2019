@@ -1,6 +1,6 @@
-import { map, split, trim, padStart, reverse, last, isArray, isEmpty } from 'lodash';
+import { map, split, trim, padStart, reverse, last, isEmpty } from 'lodash';
 
-import puzzleInput from './input.txt';
+import input from './input.txt';
 
 export const getArray = input => map(split(trim(input), ','), element => +element);
 
@@ -88,9 +88,7 @@ export const opcode8 = (array = [], modes = [0,0], pointer = 0) => {
 
 export const run = (array = [], inputs = []) => {
     let a = [...array];
-    let i = isArray(inputs) ? [...inputs] : [inputs];
     let pointer = 0;
-    let input;
     let outputs = [];
 
     for (; pointer < a.length; pointer++) {
@@ -105,11 +103,12 @@ export const run = (array = [], inputs = []) => {
         }
 
         else if (opcode === 3) {
-            if (!isEmpty(i))  {
-                input = i.shift()
+            if (isEmpty(inputs)) {
+                console.warn('unfortunately, input\'s stream is empty, program will be closed...');
+                break;
             }
 
-            [a, pointer] = opcode3(a, input, pointer);
+            [a, pointer] = opcode3(a, inputs.shift(), pointer);
         }
 
         else if (opcode === 4) {
@@ -145,15 +144,8 @@ export const run = (array = [], inputs = []) => {
 };
 
 const answer = id => {
-    const array = getArray(getArray(puzzleInput));
-    // eslint-disable-next-line no-unused-vars
-    const [a, outputs] = run(array, id);
-
-    // console.log('ID of the system to test: ', id);
-    // console.log('tests outputs: ', outputs);
-
-    // console.log('original program\'s array', array);
-    // console.log('program\'s array after execution: ', a);
+    const array = getArray(getArray(input));
+    const [, outputs] = run(array, [id]);
 
     return last(outputs);
 };
@@ -161,7 +153,7 @@ const answer = id => {
 export default {
     day: 5,
     title: 'Sunny with a Chance of Asteroids',
-    input: puzzleInput,
+    input,
     answer1: () => answer(1),
     answer2: () => answer(5)
 };

@@ -27,22 +27,22 @@ test('run', () => {
     expect(run([102,4,3,4,33])).toStrictEqual([[102,4,3,4,16], []]);
     expect(run([1002,4,3,4,33])).toStrictEqual([[1002,4,3,4,99], []]);
     expect(run([1102,4,3,4,33])).toStrictEqual([[1102,4,3,4,12], []]);
-    expect(run([3,0,4,0,99], 10)).toStrictEqual([[10,0,4,0,99], [10]]);
-    expect(run([3,0,4,0,4,0,99], 10)).toStrictEqual([[10,0,4,0,4,0,99], [10,10]]);
-    expect(run([1,0,0,3,0,0,3,5], 10)).toStrictEqual([[1,0,0,2,0,10,3,5], []]);
+    expect(run([3,0,4,0,99], [10])).toStrictEqual([[10,0,4,0,99], [10]]);
+    expect(run([3,0,4,0,4,0,99], [10])).toStrictEqual([[10,0,4,0,4,0,99], [10,10]]);
+    expect(run([1,0,0,3,0,0,3,5], [10])).toStrictEqual([[1,0,0,2,0,10,3,5], []]);
 
-    expect(run([3,9,8,9,10,9,4,9,99,-1,8], 8)).toContainEqual([1]);
+    expect(run([3,9,8,9,10,9,4,9,99,-1,8], [8])).toContainEqual([1]);
     expect(run([3,9,8,9,10,9,4,9,99,-1,8], [1])).toContainEqual([0]);
-    expect(run([3,9,7,9,10,9,4,9,99,-1,8], 1)).toContainEqual([1]);
+    expect(run([3,9,7,9,10,9,4,9,99,-1,8], [1])).toContainEqual([1]);
     expect(run([3,9,7,9,10,9,4,9,99,-1,8], [8])).toContainEqual([0]);
-    expect(run([3,3,1108,-1,8,3,4,3,99], 8)).toContainEqual([1]);
-    expect(run([3,3,1108,-1,8,3,4,3,99], 1)).toContainEqual([0]);
-    expect(run([3,3,1107,-1,8,3,4,3,99], 1)).toContainEqual([1]);
-    expect(run([3,3,1107,-1,8,3,4,3,99], 8)).toContainEqual([0]);
-    expect(run([3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9], 0)).toContainEqual([0]);
-    expect(run([3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9], 1)).toContainEqual([1]);
-    expect(run([3,3,1105,-1,9,1101,0,0,12,4,12,99,1], 0)).toContainEqual([0]);
-    expect(run([3,3,1105,-1,9,1101,0,0,12,4,12,99,1], 1)).toContainEqual([1]);
+    expect(run([3,3,1108,-1,8,3,4,3,99], [8])).toContainEqual([1]);
+    expect(run([3,3,1108,-1,8,3,4,3,99], [1])).toContainEqual([0]);
+    expect(run([3,3,1107,-1,8,3,4,3,99], [1])).toContainEqual([1]);
+    expect(run([3,3,1107,-1,8,3,4,3,99], [8])).toContainEqual([0]);
+    expect(run([3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9], [0])).toContainEqual([0]);
+    expect(run([3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9], [1])).toContainEqual([1]);
+    expect(run([3,3,1105,-1,9,1101,0,0,12,4,12,99,1], [0])).toContainEqual([0]);
+    expect(run([3,3,1105,-1,9,1101,0,0,12,4,12,99,1], [1])).toContainEqual([1]);
 
     const input = `
     3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,
@@ -51,7 +51,7 @@ test('run', () => {
     `;
     const array = getArray(input);
     // NOTE: don't know why this test case is failed T_T
-    // expect(run(array, 7)).toContainEqual([999]);
-    expect(run(array, 8)).toContainEqual([1000]);
-    expect(run(array, 9)).toContainEqual([1001]);
+    // expect(run(array, [7])).toContainEqual([999]);
+    expect(run(array, [8])).toContainEqual([1000]);
+    expect(run(array, [9])).toContainEqual([1001]);
 });
