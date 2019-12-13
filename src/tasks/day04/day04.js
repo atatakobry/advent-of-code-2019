@@ -63,6 +63,8 @@ export default {
     day: 4,
     title: 'Secure Container',
     input,
-    answer1: () => countPasswords(getRange(input)),
-    answer2: () => countPasswords(getRange(input), true)
+    answers: [
+        () => countPasswords(getRange(input)),
+        () => countPasswords(getRange(input), true)
+    ]
 };

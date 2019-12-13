@@ -51,16 +51,18 @@ export default {
     day: 2,
     title: '1202 Program Alarm',
     input,
-    answer1: () => run(getArray(input))[0],
-    answer2: () => {
-        for (let noun = 0; noun < 100; noun++) {
-            for (let verb = 0; verb < 100; verb++) {
-                if (19690720 === run(getArray(input, noun, verb))[0]) {
-                    return 100 * noun + verb;
+    answers: [
+        () => run(getArray(input))[0],
+        () => {
+            for (let noun = 0; noun < 100; noun++) {
+                for (let verb = 0; verb < 100; verb++) {
+                    if (19690720 === run(getArray(input, noun, verb))[0]) {
+                        return 100 * noun + verb;
+                    }
                 }
             }
-        }
 
-        return;
-    }
+            return;
+        }
+    ]
 };

@@ -81,10 +81,11 @@ export default {
     day: 10,
     input,
     title: 'Monitoring Station',
-    answer1: () => {
-        const [[x, y], n] = getBestLocation(getWeights(getMatrix(input)));
+    answers: [
+        () => {
+            const [[x, y], n] = getBestLocation(getWeights(getMatrix(input)));
 
-        return `[${x}, ${y}], ${n}`;
-    },
-    answer2: () => '-'
+            return `[${x}, ${y}], ${n}`;
+        },
+    ]
 };

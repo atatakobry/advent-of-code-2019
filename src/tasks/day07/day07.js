@@ -36,11 +36,12 @@ export default {
     day: 7,
     title: 'Amplification Circuit',
     input,
-    answer1: () => {
-        const array = getArray(input);
-        const { output } = getMaxSignal(array, 0);
+    answers: [
+        () => {
+            const array = getArray(input);
+            const { output } = getMaxSignal(array, 0);
 
-        return output;
-    },
-    answer2: () => '-'
+            return output;
+        }
+    ]
 };

@@ -25,6 +25,8 @@ export default {
     day: 1,
     title: 'The Tyranny of the Rocket Equation',
     input,
-    answer1: () => getTotalFuel(getMasses(input)),
-    answer2: () => getTotalFuel(getMasses(input), true)
+    answers: [
+        () => getTotalFuel(getMasses(input)),
+        () => getTotalFuel(getMasses(input), true)
+    ]
 };

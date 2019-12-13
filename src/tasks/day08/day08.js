@@ -40,38 +40,42 @@ export default {
     day: 8,
     input,
     title: 'Space Image Format',
-    answer1: () => {
-        const layers = getLayers(input);
-        const layer = getNecessaryLayer(layers);
+    answers: [
+        () => {
+            const layers = getLayers(input);
+            const layer = getNecessaryLayer(layers);
 
-        return getNumberOf(layer, 1) * getNumberOf(layer, 2);
-    },
-    answer2: () => {
-        const layers = getLayers(input);
-        const mergedLayer = mergeLayers(layers);
+            return getNumberOf(layer, 1) * getNumberOf(layer, 2);
+        },
+        () => {
+            const layers = getLayers(input);
+            const mergedLayer = mergeLayers(layers);
 
-        return (
-            <span style={{
-                display: 'inline-flex',
-                verticalAlign: 'middle',
-                flexWrap: 'wrap',
-                width: '50px',
-                height: '12px'
-            }}>
-                {
-                    mergedLayer.map((row, m) =>
-                        row.map((element, n) =>
-                            <span key={`${m},${n}`} style={{
-                                display: 'block',
-                                width: '2px',
-                                height: '2px',
-                                margin: 0,
-                                padding: 0,
-                                backgroundColor: element ? 'white' : 'black'
-                            }}/>)
-                    )
-                }
-            </span>
-        );
-    }
+            return (
+                <span style={{
+                    display: 'inline-flex',
+                    verticalAlign: 'middle',
+                    flexWrap: 'wrap',
+                    position: 'relative',
+                    top: '-2px',
+                    width: '50px',
+                    height: '12px'
+                }}>
+                    {
+                        mergedLayer.map((row, m) =>
+                            row.map((element, n) =>
+                                <span key={`${m},${n}`} style={{
+                                    display: 'block',
+                                    width: '2px',
+                                    height: '2px',
+                                    margin: 0,
+                                    padding: 0,
+                                    backgroundColor: element ? 'white' : 'black'
+                                }}/>)
+                        )
+                    }
+                </span>
+            );
+        }
+    ]
 }

@@ -17,13 +17,32 @@ header h1.title-event .title-event-wrap {
     white-space: pre;
 }
 
+.privboard-row {
+    margin: 1em 0;
+    white-space: nowrap;
+}
+.privboard-days > span {
+    display: inline-block;
+    color: #333333;
+}
+.privboard-days > a {
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #009900;
+    outline: 0;
+}
+.privboard-days > a:hover,
+.privboard-days > a:focus {
+    cursor: pointer;
+    color: #99ff99;
+}
+.privboard-days > a.isActive {
+    color: #99ff99;
+}
+
 main {
     margin-bottom: 2.5em;
-}
-main article + article {
-    margin-top: 1.5em;
-    border-top: 1px dashed #333333;
-    padding-top: 1.5em;
 }
 main div + div {
     margin-top: 1em;
@@ -42,4 +61,17 @@ main div pre {
     font-size: 0.75em;
     border: 1px solid #666666;
     background: #10101a;
+}
+
+.pseudo-link {
+    position: relative;
+    top: -2px;
+    color: #009900;
+    border-bottom: 1px dotted #009900;
+}
+.pseudo-link:hover,
+.pseudo-link:active {
+    cursor: pointer;
+    color: #99ff99;
+    border-bottom-color: #99ff99;
 }

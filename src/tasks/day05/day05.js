@@ -162,6 +162,8 @@ export default {
     day: 5,
     title: 'Sunny with a Chance of Asteroids',
     input: puzzleInput,
-    answer1: () => answer(1),
-    answer2: () => answer(5)
+    answers: [
+        () => answer(1),
+        () => answer(5)
+    ]
 };

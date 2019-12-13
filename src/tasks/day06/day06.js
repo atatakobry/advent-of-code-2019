@@ -59,19 +59,21 @@ export default {
     day: 6,
     input,
     title: 'Universal Orbit Map',
-    answer1: () => {
-        const tree = new TreeModel();
-        const root = tree.parse(getTreeModel(input));
+    answers: [
+        () => {
+            const tree = new TreeModel();
+            const root = tree.parse(getTreeModel(input));
 
-        return getTotalNumberOfOrbits(root);
-    },
-    answer2: () => {
-        const tree = new TreeModel();
-        const root = tree.parse(getTreeModel(input));
+            return getTotalNumberOfOrbits(root);
+        },
+        () => {
+            const tree = new TreeModel();
+            const root = tree.parse(getTreeModel(input));
 
-        return getMinNumberOfTransfers(
-            root.first(node => node.model.id === 'YOU').parent,
-            root.first(node => node.model.id === 'SAN').parent
-        );
-    }
+            return getMinNumberOfTransfers(
+                root.first(node => node.model.id === 'YOU').parent,
+                root.first(node => node.model.id === 'SAN').parent
+            );
+        }
+    ]
 };

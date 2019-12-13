@@ -110,6 +110,8 @@ export default {
     day: 3,
     title: 'Crossed Wires',
     input,
-    answer1: () => getDistance(input),
-    answer2: () => getDistance(input, true),
+    answers: [
+        () => getDistance(input),
+        () => getDistance(input, true)
+    ],
 };
