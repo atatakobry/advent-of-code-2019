@@ -50,7 +50,7 @@ test('get weights', () => {
 test('get best location', () => {
     let input;
     let matrix;
-    let wights;
+    let weights;
 
     input = `
     .#..#
@@ -60,8 +60,8 @@ test('get best location', () => {
     ...##
     `;
     matrix = getMatrix(input);
-    wights = getWeights(matrix);
-    expect(getBestLocation(wights)).toStrictEqual([[3,4], 8]);
+    weights = getWeights(matrix);
+    expect(getBestLocation(weights)).toStrictEqual([[3,4], 8]);
 
     input = `
     ......#.#.
@@ -76,8 +76,8 @@ test('get best location', () => {
     .#....####
     `;
     matrix = getMatrix(input);
-    wights = getWeights(matrix);
-    expect(getBestLocation(wights)).toStrictEqual([[5,8], 33]);
+    weights = getWeights(matrix);
+    expect(getBestLocation(weights)).toStrictEqual([[5,8], 33]);
 
     input = `
     #.#...#.#.
@@ -92,8 +92,8 @@ test('get best location', () => {
     .####.###.
     `;
     matrix = getMatrix(input);
-    wights = getWeights(matrix);
-    expect(getBestLocation(wights)).toStrictEqual([[1,2], 35]);
+    weights = getWeights(matrix);
+    expect(getBestLocation(weights)).toStrictEqual([[1,2], 35]);
 
     input = `
     .#..#..###
@@ -108,8 +108,8 @@ test('get best location', () => {
     .....#.#..
     `;
     matrix = getMatrix(input);
-    wights = getWeights(matrix);
-    expect(getBestLocation(wights)).toStrictEqual([[6,3], 41]);
+    weights = getWeights(matrix);
+    expect(getBestLocation(weights)).toStrictEqual([[6,3], 41]);
 
     input = `
     .#..##.###...#######
@@ -134,6 +134,6 @@ test('get best location', () => {
     ###.##.####.##.#..##
     `;
     matrix = getMatrix(input);
-    wights = getWeights(matrix);
-    expect(getBestLocation(wights)).toStrictEqual([[11,13], 210]);
+    weights = getWeights(matrix);
+    expect(getBestLocation(weights)).toStrictEqual([[11,13], 210]);
 });
