@@ -58,9 +58,9 @@ main div pre {
     padding: 1em;
     max-height: 10em;
     overflow: auto;
-    font-size: 0.75em;
     border: 1px solid #666666;
     background: #10101a;
+    font-family: "Source Code Pro", monospace;
 }
 
 .pseudo-link {
